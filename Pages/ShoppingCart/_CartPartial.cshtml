@@ -1,0 +1,7 @@
+﻿@model SSDeShopOnWeb.Models.CartProduct
+<tr>
+    <td><img src="@Model.Product.PictureUri" width="50" /></td>
+    <td>@Model.Product.Name</td>
+    <td>@Model.UnitPrice.ToString("C")</td>
+    <td>@Model.Quantity</td>
+</tr>

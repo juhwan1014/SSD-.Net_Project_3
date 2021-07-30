@@ -1,0 +1,34 @@
+﻿@page
+@model SSDeShopOnWeb.Pages.ShoppingCart.IndexModel
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <h1>Shopping Cart</h1>
+    @if (Model.Cart != null && Model.Cart.CartProducts.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Cart.CartProducts)
+                {
+                    <partial name="_CartPartial" for="@item" />
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Items in Your Cart!</p>
+    }
+    <a asp-page="/Index">Continue Shopping</a>
+    <button type="button" class="btn btn-info" style="float :right;" onclick="location.href='checkout'">Check Out</button>
+
+
